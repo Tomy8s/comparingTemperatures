@@ -1,33 +1,90 @@
-cities = require('./cities');
-citiesLen =  cities.length;
+CITIES = [
+    "Mariehamn",
+    "Tirana",
+    "Vienna",
+    "Minsk",
+    "Brussels",
+    "Sarajevo",
+    "Sofia",
+    "Zagreb",
+    "Nicosia",
+    "Prague",
+    "Copenhagen",
+    "Tallinn",
+    "Helsinki",
+    "Paris",
+    "Berlin",
+    "Athens",
+    "Rome",
+    "Budapest",
+    "Reykjavík",
+    "Dublin",
+    "Riga",
+    "Vaduz",
+    "Vilnius",
+    "Luxembourg",
+    "Skopje",
+    "Valletta",
+    "Chișinău",
+    "Monaco",
+    "Podgorica",
+    "Amsterdam",
+    "Oslo",
+    "Warsaw",
+    "Lisbon",
+    "Pristina",
+    "Bucharest",
+    "Moscow",
+    "Belgrade",
+    "Bratislava",
+    "Ljubljana",
+    "Madrid",
+    "Stockholm",
+    "Bern",
+    "Kiev",
+    "London"
+  ];
 
-function randomCity() {
-    return cities[Math.floor(Math.random() * citiesLen)]
+function randomCity(notThisCityIndex) {
+    cities = [ ...CITIES ];
+    if (notThisCityIndex) {
+        cities.slice(notThisCityIndex, 1);
+    }
+    return cities[Math.floor(Math.random() * cities.length)]
 }
 
 function randomTemp() {
     return Math.floor(Math.random() * 100) - 50;
 }
 
-function createSentence() {
+function createExercise() {
     city1 = randomCity();
-    city2 = randomCity();
+    city2 = randomCity(CITIES.indexOf(city1));
     temp1 = randomTemp();
     temp2 = randomTemp();
 
     return (`
 In ${city1} it is ${temp1}°C.
 In ${city2} it is ${temp2}°C.
-${temp1} __ ${temp2}
+${temp1}°C __ ${temp2}°C
 ${city1} is hotter/colder.
 ${city2} is hotter/colder.
+The temperature difference is ___ °C.
 `)
 }
 
-result = '';
+function createExercises(numQuestions) {
+    let result = '';
 
-for (let i = 0; i < 32; i++) {
-    result += createSentence();
+    for (let i = 0; i < numQuestions; i++) {
+        result += createExercise();
+    }
+    console.log (result);
 }
 
-console.log (result)
+`
+To get 12 exercises copy and pase the following line below:
+
+createExercises(12)
+
+Details at: https://github.com/Tomy8s/comparingTemperatures`

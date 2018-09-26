@@ -6,9 +6,24 @@ e.g.:
 
 
 ```
-In San Juan it is -13°C.
-In Bogotá it is 20°C.
--13 __ 20
-San Juan is hotter/colder.
-Bogotá is hotter/colder.
+In Rome it is -30°C.
+In Madrid it is 49°C.
+-30°C __ 49°C
+Rome is hotter/colder.
+Madrid is hotter/colder.
+The temperature difference is ___ °C.
 ```
+
+## How to run it.
+
+Copy the contents of [`index.js`](./index.js)
+
+In Chrome, press `ctrl` + `shift` + `J` (`⌘` + `⌥` + `J` on Mac)
+
+Paste the contents of the file into the box that apears and press `return`
+
+Type `createSentences(<number of sentences>)` and press `return`
+
+e.g. If you would like 3 sentences type `createExercises(3)` and press `return`
+
+![example image](./example.png)
